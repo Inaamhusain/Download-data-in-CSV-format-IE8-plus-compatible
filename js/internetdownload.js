@@ -3,7 +3,6 @@ $(document).ready(function(){
         var data = $('#txt').val();
         if(data == '')
             return;
-        
         JSONToCSVConvertor(data, true);
     });
 		
@@ -35,11 +34,11 @@ function JSONToCSVConvertor(JSONData,ShowLabel) {
 	}   
 	var fileName = "Result";
 	if(msieversion()){
-	var oWin = window.open();
-	oWin.document.write('sep=,\r\n' + CSV);
-	oWin.document.close();
-	oWin.document.execCommand('SaveAs', true, fileName + ".csv");
-	oWin.close();
+	var IEwindow = window.open();
+	IEwindow.document.write('sep=,\r\n' + CSV);
+	IEwindow.document.close();
+	IEwindow.document.execCommand('SaveAs', true, fileName + ".csv");
+	IEwindow.close();
 	} else {
 	 var uri = 'data:application/csv;charset=utf-8,' + escape(CSV);
 	 var link = document.createElement("a");    
